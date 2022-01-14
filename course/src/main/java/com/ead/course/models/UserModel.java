@@ -14,18 +14,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL) // Vai ocultar o valores não preenchidos
 @Entity
-@Table(name = "TB_COURSES_USERS")
-public class CourseUserModel implements Serializable {
+@Table(name = "TB_USERS")
+public class UserModel implements Serializable {
     //Identificação da classe model
     private static final long serialVersionUID = 1l;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    @Column(nullable = false)
     private UUID userId;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private CourseModel course;
 }

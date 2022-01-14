@@ -8,8 +8,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -65,11 +63,4 @@ public class CourseModel implements Serializable {
     @Fetch(FetchMode.SUBSELECT) // Vai fazer select no course e depois nos modules
     private Set<ModuleModel> modules; // O SET Não é ordenado, mas não permite duplicata
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private Set<CourseUserModel> courseUser;
-
-    public CourseUserModel convertToCourseUSerModel(UUID userId){
-        return new CourseUserModel(null,  userId, this);
-    }
 }
