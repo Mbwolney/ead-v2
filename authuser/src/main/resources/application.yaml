@@ -24,6 +24,8 @@ spring:
   output:
     ansi:
       enabled: always
+  rabbitmq:
+    addresses: amqps://evadgqii:TFeiubGssAlgMa1N1ZFmbDz-13RLtBz4@clam.rmq.cloudamqp.com/evadgqii
 
 logging:
   level:
